@@ -1,5 +1,5 @@
+import tkinter
 from tkinter import *
-from tkinter import filedialog
 from tkinter.filedialog import *
 
 #텍스트 창 함수
