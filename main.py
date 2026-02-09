@@ -1,10 +1,29 @@
 from tkinter import *
+from tkinter import filedialog
 from tkinter.filedialog import *
+
+#텍스트 창 함수
+def new_file():
+    text_area.delete("1.0", END)
+
+#파일 저장함수
+def save_file():
+    f = asksaveasfile(mode='w', defaultextension='.txt',filetypes=[('text files', '.txt')])
+    text_save = str(text_area.get("1.0", END))
+    f.write(text_save)
+    f.close()
+
+def marker():
+    help_view = Toplevel(window)
+    help_view.geometry("200x50")
+    help_view.title("만든이")
+    lb = Label(help_view,text = "주성현의 메모장")
+    lb.pack()
 
 window = Tk()
 window.title("Notepad")
 window.geometry("400x400")
-window.resizable(False, False)
+window.resizable(True, True)
 
 menu = Menu(window) # 최상위 메뉴
 menu_1 = Menu(menu, tearoff=0) # 하위 메뉴
